@@ -19,7 +19,7 @@ NSURL *URL = [NSURL ars_queryWithString:baseURL queryElements:items];
 URLQueryBuilder offers some more useful methods to create a ready URL for request.
 
 ###### Basic query creating  
-There are two ways, in which you can provide base URL: via `NSString` object and via `NSURL` object. Here are the most basic classes for that:
+There are two ways, in which you can provide base URL: via `NSString` object and via `NSURL` object. Here are the most basic methods for that:
 
 ``` objective-c
 + (NSURL *)ars_queryWithString:(NSString *)URL queryElements:(NSDictionary<NSString *,NSString *> *)queryElements;
