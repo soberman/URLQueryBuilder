@@ -10,7 +10,7 @@ NSDictionary *items = @{
     @"lr" : @"lang_en"
 };
 
-NSURL *URL = [NSURL ars_queryWithString:kBaseURL queryElements:items];  
+NSURL *URL = [NSURL ars_queryWithString:baseURL queryElements:items];  
 // https://google.com/search?q=arsenkin.com&hl=en_US&lr=lang_en
 ```
 
