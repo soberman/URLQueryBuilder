@@ -1,6 +1,6 @@
 # NSURL+URLQueryBuilder
 
-Fully Swift compatible handy category, that helps building GET queries with ease. All you need to do is to provide base URL and a dictionary of query items and get your already build NSURL as a return value.
+Fully Swift compatible handy category, that helps building GET queries with ease. All you need to do is to provide base URL and a dictionary of query items and get your ready-to-use NSURL as a return value.
 
 ``` objective-c
 NSString *baseURL = @"https://google.com/search";
