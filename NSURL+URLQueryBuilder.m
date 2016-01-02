@@ -4,6 +4,7 @@
 //
 //  Created by Yaroslav Arsenkin on 26.10.15.
 //  Copyright © 2015 Iaroslav Arsenkin. All rights reserved.
+//  Website: http://arsenkin.com
 //
 
 #import "NSURL+URLQueryBuilder.h"
