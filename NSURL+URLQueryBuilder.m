@@ -59,4 +59,13 @@
     return components.URL;
 }
 
++ (NSDictionary *)ars_queryDictionaryWithURL:(NSURL *)URL {
+    NSMutableDictionary *mQueryDictionary = [NSMutableDictionary dictionary];
+    NSURLComponents *components = [NSURLComponents componentsWithURL:URL resolvingAgainstBaseURL:false];
+    for (NSURLQueryItem *item in components.queryItems) {
+        [mQueryDictionary setObject:item.value forKey:item.name];
+    }
+    return mQueryDictionary;
+}
+
 @end

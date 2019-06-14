@@ -100,5 +100,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (NSURL *)ars_queryWithURL:(NSURL *)URL queryElements:(NSDictionary<NSString *, NSString *> *)queryElements resolveAgainstBaseURL:(BOOL)resolve URLComponent:(NSURLComponents * _Nullable * _Nullable)URLComponent;
 
++ (NSDictionary *)ars_queryDictionaryWithURL:(NSURL *)URL;
+
 NS_ASSUME_NONNULL_END
 @end
