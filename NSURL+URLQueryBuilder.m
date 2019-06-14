@@ -51,7 +51,7 @@
     }
     
     NSURLComponents *components = [NSURLComponents componentsWithURL:URL resolvingAgainstBaseURL:resolve];
-    components.queryItems = [mQueryItems copy];
+    components.queryItems = [components.queryItems arrayByAddingObjectsFromArray:mQueryItems];
     
     if (URLComponent) {
         *URLComponent = components;
