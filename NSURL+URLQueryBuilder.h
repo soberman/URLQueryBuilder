@@ -15,16 +15,6 @@ NS_ASSUME_NONNULL_BEGIN
 /*!
  Builds the request URL from incoming base URL and queries.
  
- @params URL String object, that represents base URL.
- @params queryElements Dictionary of query elements. Key is query name and value is query's value.
- 
- @return NSURL Complete request URL ready for use.
- */
-+ (NSURL *)ars_queryWithString:(NSString *)URL queryElements:(NSDictionary<NSString *,NSString *> *)queryElements;
-
-/*!
- Builds the request URL from incoming base URL and queries.
- 
  @params URL URL object, that represents base URL.
  @params queryElements Dictionary of query elements. Key is query name and value is query's value.
  
@@ -35,35 +25,13 @@ NS_ASSUME_NONNULL_BEGIN
 /*!
  Builds the request URL from incoming base URL and queries, with ability to resolve URL against its base URL.
  
- @params URL String object, that represents base URL.
- @params queryElements Dictionary of query elements. Key is query name and value is query's value.
- @params resolveAgainstBaseURL BOOL object, that states, whether resolving against base URL should be done or not.
- 
- @return NSURL Complete request URL ready for use.
- */
-+ (NSURL *)ars_queryWithString:(NSString *)URL queryElements:(NSDictionary<NSString *, NSString *> *)queryElements resolveAgainstBaseURL:(BOOL)resolve;
-
-/*!
- Builds the request URL from incoming base URL and queries, with ability to resolve URL against its base URL.
- 
  @params URL URL object, that represents base URL.
  @params queryElements Dictionary of query elements. Key is query name and value is query's value.
- @params resolveAgainstBaseURL BOOL object, that states, whether resolving against base URL should be done or not.
+ @params resolve BOOL object, that states, whether resolving against base URL should be done or not.
  
  @return NSURL Complete request URL ready for use.
  */
 + (NSURL *)ars_queryWithURL:(NSURL *)URL queryElements:(NSDictionary<NSString *, NSString *> *)queryElements resolveAgainstBaseURL:(BOOL)resolve;
-
-/*!
- Builds the request URL from incoming base URL and queries as well as ability to write NSURLComponents object that has been used to generate the URL for further use.
- 
- @params URL String object, that represents base URL.
- @params queryElements Dictionary of query elements. Key is query name and value is query's value.
- @params URLComponent NSURLComponents, that has been created to generate the URL, is going to be written to this variable.
- 
- @return NSURL Complete request URL ready for use.
- */
-+ (NSURL *)ars_queryWithString:(NSString *)URL queryElements:(NSDictionary<NSString *, NSString *> *)queryElements URLComponent:(NSURLComponents * _Nullable * _Nullable)URLComponent;
 
 /*!
  Builds the request URL from incoming base URL and queries as well as ability to write NSURLComponents object that has been used to generate the URL for further use.
@@ -81,19 +49,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @params URL String object, that represents base URL.
  @params queryElements Dictionary of query elements. Key is query name and value is query's value.
- @params resolveAgainstBaseURL BOOL object, that states, whether resolving against base URL should be done or not.
- @params URLComponent NSURLComponents, that has been created to generate the URL, is going to be written to this variable.
- 
- @return NSURL Complete request URL ready for use.
- */
-+ (NSURL *)ars_queryWithString:(NSString *)URL queryElements:(NSDictionary<NSString *, NSString *> *)queryElements resolveAgainstBaseURL:(BOOL)resolve URLComponent:( NSURLComponents * _Nullable * _Nullable)URLComponent;
-
-/*!
- Builds the request URL from incoming base URL and queries, with ability to resolve URL against its base URL, as well as ability to write NSURLComponents object that has been used to generate the URL for further use.
- 
- @params URL String object, that represents base URL.
- @params queryElements Dictionary of query elements. Key is query name and value is query's value.
- @params resolveAgainstBaseURL BOOL object, that states, whether resolving against base URL should be done or not.
+ @params resolve BOOL object, that states, whether resolving against base URL should be done or not.
  @params URLComponent NSURLComponents, that has been created to generate the URL, is going to be written to this variable.
  
  @return NSURL Complete request URL ready for use.
@@ -101,6 +57,77 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSURL *)ars_queryWithURL:(NSURL *)URL queryElements:(NSDictionary<NSString *, NSString *> *)queryElements resolveAgainstBaseURL:(BOOL)resolve URLComponent:(NSURLComponents * _Nullable * _Nullable)URLComponent;
 
 + (NSDictionary *)ars_queryDictionaryWithURL:(NSURL *)URL;
+
+- (NSDictionary *)ars_queryDictionary;
+
+- (NSURL *)ars_queryElements:(NSDictionary<NSString *,NSString *> *)queryElements;
+
+- (NSURL *)ars_queryElements:(NSDictionary<NSString *, NSString *> *)queryElements resolveAgainstBaseURL:(BOOL)resolve;
+
+- (NSURL *)ars_queryElements:(NSDictionary<NSString *, NSString *> *)queryElements URLComponent:(NSURLComponents * _Nullable * _Nullable)URLComponent;
+
+- (NSURL *)ars_queryElements:(NSDictionary<NSString *, NSString *> *)queryElements resolveAgainstBaseURL:(BOOL)resolve URLComponent:(NSURLComponents * _Nullable * _Nullable)URLComponent;
+
+NS_ASSUME_NONNULL_END
+@end
+
+
+@interface NSString (URLQueryBuilder)
+NS_ASSUME_NONNULL_BEGIN
+
+/*!
+ Builds the request URL from incoming base URL and queries.
+ 
+ @params URL String object, that represents base URL.
+ @params queryElements Dictionary of query elements. Key is query name and value is query's value.
+ 
+ @return NSURL Complete request URL ready for use.
+ */
++ (NSURL *)ars_queryWithString:(NSString *)URL queryElements:(NSDictionary<NSString *,NSString *> *)queryElements;
+
+/*!
+ Builds the request URL from incoming base URL and queries, with ability to resolve URL against its base URL.
+ 
+ @params URL String object, that represents base URL.
+ @params queryElements Dictionary of query elements. Key is query name and value is query's value.
+ @params resolve BOOL object, that states, whether resolving against base URL should be done or not.
+ 
+ @return NSURL Complete request URL ready for use.
+ */
++ (NSURL *)ars_queryWithString:(NSString *)URL queryElements:(NSDictionary<NSString *, NSString *> *)queryElements resolveAgainstBaseURL:(BOOL)resolve;
+
+/*!
+ Builds the request URL from incoming base URL and queries as well as ability to write NSURLComponents object that has been used to generate the URL for further use.
+ 
+ @params URL String object, that represents base URL.
+ @params queryElements Dictionary of query elements. Key is query name and value is query's value.
+ @params URLComponent NSURLComponents, that has been created to generate the URL, is going to be written to this variable.
+ 
+ @return NSURL Complete request URL ready for use.
+ */
++ (NSURL *)ars_queryWithString:(NSString *)URL queryElements:(NSDictionary<NSString *, NSString *> *)queryElements URLComponent:(NSURLComponents * _Nullable * _Nullable)URLComponent;
+
+/*!
+ Builds the request URL from incoming base URL and queries, with ability to resolve URL against its base URL, as well as ability to write NSURLComponents object that has been used to generate the URL for further use.
+ 
+ @params URL String object, that represents base URL.
+ @params queryElements Dictionary of query elements. Key is query name and value is query's value.
+ @params resolve BOOL object, that states, whether resolving against base URL should be done or not.
+ @params URLComponent NSURLComponents, that has been created to generate the URL, is going to be written to this variable.
+ 
+ @return NSURL Complete request URL ready for use.
+ */
++ (NSURL *)ars_queryWithString:(NSString *)URL queryElements:(NSDictionary<NSString *, NSString *> *)queryElements resolveAgainstBaseURL:(BOOL)resolve URLComponent:( NSURLComponents * _Nullable * _Nullable)URLComponent;
+
+- (NSDictionary *)ars_queryDictionary;
+
+- (NSURL *)ars_queryElements:(NSDictionary<NSString *,NSString *> *)queryElements;
+
+- (NSURL *)ars_queryElements:(NSDictionary<NSString *, NSString *> *)queryElements resolveAgainstBaseURL:(BOOL)resolve;
+
+- (NSURL *)ars_queryElements:(NSDictionary<NSString *, NSString *> *)queryElements URLComponent:(NSURLComponents * _Nullable * _Nullable)URLComponent;
+
+- (NSURL *)ars_queryElements:(NSDictionary<NSString *, NSString *> *)queryElements resolveAgainstBaseURL:(BOOL)resolve URLComponent:( NSURLComponents * _Nullable * _Nullable)URLComponent;
 
 NS_ASSUME_NONNULL_END
 @end
